@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  react:
+    build: ./frontend
+    container_name: headphone-frontend
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+  # nginx:
+  #   image: nginx:1.24.0
+  #   container_name: nginx
+  #   restart: always
+  #   ports:
+  #     - 8000:80
+  #   volumes:
+  #     - ./backend:/var/www
+  #     - ./nginx:/etc/nginx/conf.d
+  # php:
+  #   build:
+  #     context: ./backend/
+  #     dockerfile: Dockerfile
+  #   container_name: php-fpm
+  #   restart: always
+  #   working_dir: /var/www/
+  #   volumes:
+  #     - ./backend:/var/www
+  # db:
+  #   image: mariadb:10.5
+  #   restart: unless-stopped
+  #   container_name: db
+  #   environment:
+  #     MYSQL_DATABASE: laravel
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_PASSWORD: password
+  #     MYSQL_USER: root
+  #   volumes:
+  #     - ./data:/var/lib/mysql
+  #   ports:
+  #     - "3306:3306"
