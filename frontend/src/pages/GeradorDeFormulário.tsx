@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
+import { Header } from "@/partials/Header";
 
 const completeForm = {
   name: "",
@@ -32,11 +33,12 @@ const completeForm = {
 
 interface GeradorDeFormularioProps {}
 export function GeradorDeFormulario(props: GeradorDeFormularioProps) {
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(33);
   const [form, setForm] = useState<any>(completeForm);
 
   return (
     <>
+      <Header />
       <div className="w-[500px] flex flex-col mx-auto pt-10">
         <div>
           <Title className="text-center">
@@ -47,8 +49,8 @@ export function GeradorDeFormulario(props: GeradorDeFormularioProps) {
         <div className="relative my-10">
           <div className="absolute left-0 -translate-x-1 top-1/2 -translate-y-1/2 flex w-full justify-between">
             <StepNumber wasPassed={progress > 0} step={1} />
-            <StepNumber wasPassed={progress > 25} step={2} />
-            <StepNumber wasPassed={progress > 50} step={3} />
+            <StepNumber wasPassed={progress > 50} step={2} />
+            <StepNumber wasPassed={progress == 100} step={3} />
           </div>
           <ProgressBar progress={progress} />
         </div>
@@ -245,7 +247,7 @@ export function GeradorDeFormulario(props: GeradorDeFormularioProps) {
             ""
           )}
         </div>
-        <Button className="w-[100px] mx-auto mt-auto">Continuar</Button>
+        <Button className="w-[100px] mx-auto mt-8">Continuar</Button>
       </div>
     </>
   );
