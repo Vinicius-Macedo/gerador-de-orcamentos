@@ -33,12 +33,12 @@ const completeForm = {
 
 interface GeradorDeFormularioProps {}
 export function GeradorDeFormulario(props: GeradorDeFormularioProps) {
-  const [progress, setProgress] = useState(33);
+  const [progress, setProgress] = useState(80);
   const [form, setForm] = useState<any>(completeForm);
 
   return (
     <>
-      <Header />
+      <Header/>
       <div className="w-[500px] flex flex-col mx-auto pt-10">
         <div>
           <Title className="text-center">
@@ -247,7 +247,7 @@ export function GeradorDeFormulario(props: GeradorDeFormularioProps) {
             ""
           )}
         </div>
-        <Button className="w-[100px] mx-auto mt-8">Continuar</Button>
+        <Button className="w-[100px] mx-auto mt-4">Continuar</Button>
       </div>
     </>
   );
